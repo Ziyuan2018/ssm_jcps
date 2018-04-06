@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.jcps.dao.MessageDao">
+    <!-- 新增消息 -->
+    <insert id="insertMessage" parameterType="com.echo.jcps.entity.Message">
+    	INSERT INTO
+    		message(
+    			addresser,
+    			addressee,
+    			sName,
+    			rName,
+    			createTime,
+    			content,
+    			mark)
+    	VALUES
+    			(
+    			#{message.addresser},
+    			#{message.addressee},
+    			#{message.sName},
+    			#{message.rName},
+    			#{message.createTime},
+    			#{message.content},
+    			#{message.mark}	
+    			)
+    </insert>
+    
+    <!-- 查找发送的消息 -->
+    <select id="querySendMessageById" resultType="Message">
+    	SELECT
+    		id,
+            addresser,
+        	addressee,
+        	sName,
+        	rName,
+        	createTime,
+        	content,
+        	mark
+        FROM
+            message
+        WHERE
+            addresser = #{id}
+    </select>
+    
+    <!-- 查找发送的消息 -->
+    <select id="queryReceiveMessageById" resultType="Message">
+    	SELECT
+    		id,
+            addresser,
+        	addressee,
+        	sName,
+        	rName,
+        	createTime,
+        	content,
+        	mark
+        FROM
+            message
+        WHERE
+            addressee = #{id}
+    </select>
+
+	<!-- 查找所有消息 -->
+	<select id="queryAllMessage" resultType="Message">
+    	SELECT
+    		id,
+            addresser,
+        	addressee,
+        	createTime,
+        	sName,
+        	rName,
+        	content,
+        	mark
+        FROM
+            message
+    </select>
+    
+    <!-- 删除对应ID的消息 -->
+    <delete id="deleteMessageById">
+    	DELETE
+    	FROM
+    		message
+    	WHERE 
+    		id = #{id}
+    </delete>
+
+	<!-- 更新消息的已读标记 -->
+    <update id="updateMessageMarkById">
+		UPDATE 
+			message
+        SET 
+        	mark = '已读'
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

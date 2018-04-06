@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.jcps.dao.JournalDao">
+    <!-- 保存上传的期刊信息 -->   
+    <insert id="insertJournal" parameterType="com.echo.jcps.entity.Journal">
+    	INSERT INTO
+    		journal(writerId,writerName,fileName,name,keyword,createTime,status)
+    	VALUES
+    		(#{journal.writerId},#{journal.writerName},#{journal.fileName},#{journal.name},#{journal.keyword},#{journal.createTime},#{journal.status})
+    </insert>
+    
+    <!-- 获取所有期刊信息 -->
+    <select id="queryAllJournalList" resultType="Journal">
+        SELECT
+            id,
+            writerId,
+            writerName,
+            name,
+            fileName,
+            keyword,
+            status,
+            createTime,
+            censorTime,
+            readerId,
+            readerName,
+            proposal
+        FROM
+            journal
+    </select>
+    
+    <!-- 获取所有期刊信息 -->
+    <select id="queryJournalById" resultType="Journal">
+        SELECT
+            id,
+            writerId,
+            writerName,
+            name,
+            fileName,
+            keyword,
+            status,
+            createTime,
+            censorTime,
+            readerId,
+            readerName,
+            proposal
+        FROM
+            journal
+        WHERE
+        	id = #{id}
+    </select>
+    
+    <!-- 验证文件名是否重复 -->
+    <select id="checkFilename" resultType="Journal">
+        SELECT
+            id,
+            writerId,
+            writerName,
+            name,
+            fileName,
+            keyword,
+            status,
+            createTime,
+            censorTime,
+            readerId,
+            readerName,
+            proposal
+        FROM
+            journal
+        WHERE
+        	fileName = #{fileName}
+    </select>
+    
+    <!-- 通过ID删除期刊信息 -->
+    <delete id="deleteJournalById">
+    	DELETE
+    	FROM
+    		journal
+    	WHERE
+			id = #{id}
+    </delete>
+    
+    <!-- 修改已审核期刊为已更新 -->
+    <update id="updateJournal">
+		UPDATE 
+			journal
+        SET 
+            status = #{journal.status},
+            censorTime = #{journal.censorTime},
+            readerId = #{journal.readerId},
+            readerName = #{journal.readerName},
+            proposal = #{journal.proposal}
+        WHERE
+            id = #{journal.id}
+    </update>
+    
+    <!-- 更新审核完成的期刊信息 -->
+    <update id="updateStatus">
+		UPDATE 
+			journal
+        SET 
+        	status = '已发表'
+        WHERE
+            id = #{id}
+    </update>
+    
+    <!-- 通过用户查询对应期刊列表 -->
+    <select id="queryJournalByUid" resultType="Journal">
+        SELECT
+            id,
+            writerId,
+            writerName,
+            name,
+            fileName,
+            keyword,
+            status,
+            createTime,
+            censorTime,
+            readerId,
+            readerName,
+            proposal
+        FROM
+            journal
+        WHERE
+        	writerId = #{id}
+        OR
+        	readerId = #{id}
+    </select>
+    
+    <!-- 通过用户查询对应期刊列表 -->
+    <select id="queryJournalByFileName" resultType="Journal">
+        SELECT
+            id,
+            writerId,
+            writerName,
+            name,
+            fileName,
+            keyword,
+            status,
+            createTime,
+            censorTime,
+            readerId,
+            readerName,
+            proposal
+        FROM
+            journal
+        WHERE
+        	fileName = #{filename}
+    </select>
+    
+</mapper>

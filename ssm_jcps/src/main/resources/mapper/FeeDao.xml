@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.jcps.dao.FeeDao">
+
+    <!-- 查询所有用户的费用情况 -->
+    <select id="queryAllFees" resultType="Fee">
+        SELECT
+        	id,
+        	journalId,
+        	journalName,
+            writerId,
+            writerName,
+            readerId,
+            readerName,
+            vettingFee,
+            versionFee,
+            total,
+            state
+        FROM
+            fee
+    </select>
+    
+    <!-- 查询对应用户的费用情况 -->
+    <select id="queryFeesByUserId" resultType="Fee">
+        SELECT
+        	id,
+        	journalId,
+        	journalName,
+            writerId,
+            writerName,
+            readerId,
+            readerName,
+            vettingFee,
+            versionFee,
+            total,
+            state
+        FROM
+            fee
+        WHERE
+        	writerId = #{uId}
+       	OR
+       		readerId = #{uId}
+    </select>
+    
+    <!-- 根据文件ID查询对应费用情况 -->
+    <select id="queryFeesByJournalId" resultType="Fee">
+        SELECT
+        	id,
+        	journalId,
+        	journalName,
+            writerId,
+            writerName,
+            readerId,
+            readerName,
+            vettingFee,
+            versionFee,
+            total,
+            state
+        FROM
+            fee
+        WHERE
+        	journalId = #{jId}
+    </select>
+    
+    <!-- 查询对应ID的费用情况 -->
+    <select id="queryFeesById" resultType="Fee">
+        SELECT
+        	id,
+        	journalId,
+        	journalName,
+            writerId,
+            writerName,
+            readerId,
+            readerName,
+            vettingFee,
+            versionFee,
+            total,
+            state
+        FROM
+            fee
+        WHERE
+        	id = #{id}
+    </select>
+    
+    <!-- 添加用户费用信息 -->
+    <insert id="insertFees" parameterType="com.echo.jcps.entity.Fee">
+    	INSERT INTO
+    		fee(journalId,
+    		journalName,
+    		writerId,
+    		writerName,
+            readerId,
+            readerName,
+            vettingFee,
+            versionFee,
+            total,
+            state)
+    	VALUES
+    		(#{fee.journalId},
+    		#{fee.journalName},
+    		#{fee.writerId},
+    		#{fee.writerName},
+    		#{fee.readerId},
+    		#{fee.readerName},
+    		#{fee.vettingFee},
+    		#{fee.versionFee},
+    		#{fee.total},
+    		#{fee.state})
+    </insert>
+    
+    <!-- 更新用户费用信息 -->
+    <update id="updateFeesById" >
+		UPDATE
+			fee
+		SET
+		    readerId = #{fee.readerId},
+		    readerName = #{fee.readerName}
+		WHERE
+			journalId = #{id}
+	</update>
+	
+	<!-- 更新用户费用支付状态 -->
+    <update id="updateFeesState" >
+		UPDATE
+			fee
+		SET
+		    state = #{state}
+		WHERE
+			id = #{fId}
+	</update>
+    
+    <!-- 删除用户费用信息 -->
+    <delete id="deleteFeesById">
+    	DELETE
+    	FROM
+    		fee
+    	WHERE
+			id = #{id}
+    </delete>
+    
+</mapper>

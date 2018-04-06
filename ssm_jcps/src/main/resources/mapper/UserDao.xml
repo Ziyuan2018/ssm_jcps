@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.jcps.dao.UserDao">
+
+	<!-- 检查用户名是否存在 -->
+	<select id="checkUsername" resultType="User">
+        <!-- 具体的sql -->
+        SELECT
+            username
+        FROM
+            user
+        WHERE
+        	username = #{username}
+    </select>
+    
+    <!-- 忘记密码核实邮箱手机号 -->
+	<select id="forgetPwd" resultType="User">
+        <!-- 具体的sql -->
+        SELECT
+            id,
+            username,
+            password,
+            type,
+            phone,
+            email,
+            bankCard,
+            realName,
+            sex
+        FROM
+            user
+        WHERE
+        	type = #{user.type}
+       	AND
+       		phone = #{user.phone}
+      	OR
+      		email = #{user.email}
+    </select>
+	
+    <!-- 用户登录信息检查 -->
+    <select id="loginCheck" resultType="User">
+        <!-- 具体的sql -->
+        SELECT
+        	id,
+            username,
+            password,
+            type,
+            phone,
+            email,
+            bankCard,
+            realName,
+            sex
+        FROM
+            user
+        WHERE
+            type = #{type}
+        AND
+        	username = #{username}
+        AND
+        	password = #{password}
+    </select>
+    
+    <!-- 注册用户 -->
+    <insert id="enroll" parameterType="com.echo.jcps.entity.User">
+    	INSERT INTO
+    		user(username,password,type,email)
+    	VALUES
+    		(#{user.username},#{user.password},#{user.type},#{user.email})
+    </insert>
+    
+    <!-- 通过用户ID查询用户信息 -->
+    <select id="queryById" resultType="User">
+        <!-- 具体的sql -->
+        SELECT
+        	id,
+            username,
+        	password,
+        	type,
+        	phone,
+        	email,
+        	bankCard,
+        	sex,
+        	realName
+        FROM
+            user
+        WHERE
+            id = #{id}
+    </select>
+    
+    <!-- 查询用户列表 -->
+    <select id="queryUserList" resultType="User">
+        <!-- 具体的sql -->
+        SELECT
+        	id,
+            username,
+        	password,
+        	type,
+        	phone,
+        	email,
+        	bankCard,
+        	sex,
+        	realName
+        FROM
+            user
+        ORDER BY
+            id
+    </select>
+    
+    <!-- 通过用户ID更新用户信息 -->
+    <update id="updateById">
+		UPDATE 
+			user
+        SET 
+        	realName = #{user.realName},
+        	sex = #{user.sex},
+        	phone = #{user.phone},
+        	email = #{user.email},
+        	bankCard = #{user.bankCard}
+        WHERE
+            id = #{id}
+    </update>
+    
+    <!-- 通过用户ID更新用户账号密码 -->
+    <update id="updateUPById">
+		UPDATE 
+			user
+        SET 
+        	username = #{user.username},
+        	password = #{user.password}
+        WHERE
+            id = #{id}
+    </update>
+   
+    <!-- 通过用户ID删除用户信息 -->
+    <delete id="deleteById">
+    	DELETE
+    	FROM
+    		user
+    	WHERE
+			id = #{id}
+    </delete>
+    
+    
+</mapper>
