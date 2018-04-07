@@ -33,7 +33,6 @@
 						介于本管理系统基本可以操作所有数据信息，
 						所以编剧在进行核心数据操作时，应注意相关数据的必要性，
 						如果出现需要数据恢复的情况，请及时和管理员联系。&nbsp;&nbsp;&nbsp;&nbsp;
-						<span class="label label-danger">时刻注意</span>
 					</p>
 					<br/>
 					<p></p>
@@ -41,14 +40,12 @@
 						编辑可以通过本管理系统查阅到所有信件消息（不光包括自己），
 						所以希望编辑在不需要查阅所有交流记录时，不要私自查阅专家和作者的消息记录，
 						以及随便删除信件。&nbsp;&nbsp;&nbsp;&nbsp;
-						<span class="label label-warning">尊重隐私</span>
 					</p>
 					<br/>
 					<p></p>
 					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 						希望该系统可以为编辑以及专家作者提供一个方便的期刊处理软件，
 						遇到任何技术和非技术问题通过以下联系方式联系我们。
-						&nbsp;&nbsp;&nbsp;&nbsp;<span class="label label-info">感谢使用</span></p>
 					</p>
 					<br/>
 					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<span class="label label-success">手机号：</span>&nbsp;&nbsp;155-4947-2837</p>

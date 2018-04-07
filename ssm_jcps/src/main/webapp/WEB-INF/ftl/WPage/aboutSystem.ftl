@@ -23,14 +23,14 @@
 						style="width: 100%;display: block;text-decoration: none;"> <span
 						style="color: #A52A2A;"> <i
 							class="glyphicon glyphicon-leaf"></i>
-					</span> &nbsp;&nbsp;审核须知
+					</span> &nbsp;&nbsp;投递须知
 					</a>
 				</h3>
 			</div>
 			<div id="no_wInfo" class="panel-collapse collapse in">
 				<div class="panel-body" style="padding:20px 50px;">
 					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-						本管理系统提供给专家的基本的期刊审核，
+						本管理系统提供给作者的期刊投递系统，
 						当然还包括诸如消息沟通，费用查询，信息修改等功能。
 						如果出现网站错误类似的情况，请及时和管理员联系。
 					</p>

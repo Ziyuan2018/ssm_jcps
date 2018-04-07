@@ -25,7 +25,7 @@
 							</div>
 							<div>
 								<ul class="nav navbar-nav" style="margin-left: 20px;">
-									<li class="active"><a href="#" style="color: #FFF;margin:0 5px 0 5px;">信息管理</a></li>
+									<li class="active"><a href="#" style="color: #FFF;margin:0 5px 0 5px;">首页</a></li>
 									<li><a href="javascript:;" onclick="showAtRight('${base}/journal/jList?JState=1&uId=${user.id}&currPage=1')" style="color: #FFF;margin:0 5px 0 5px;">期刊审核</a></li>
 									<li><a href="javascript:;" onclick="showAtRight('${base}/journal/queryJournalListByUid?mark=0&uId=${user.id}&currPage=1')" style="color: #FFF; margin:0 5px 0 5px;">审核记录</a></li>
 									<li class="dropdown">

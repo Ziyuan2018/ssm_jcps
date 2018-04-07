@@ -24,7 +24,7 @@
 							</div>
 							<div>
 								<ul class="nav navbar-nav" style="margin-left: 20px;">
-									<li class="active"><a href="${base}/user/page?add=1&uId=${user.id}" style="color: #FFF;margin:0 5px 0 5px;">信息管理</a></li>
+									<li class="active"><a href="${base}/user/page?add=1&uId=${user.id}" style="color: #FFF;margin:0 5px 0 5px;">首页</a></li>
 									<li><a href="${base}/journal/addJournal?uId=${user.id}" style="color: #FFF;margin:0 5px 0 5px;">投递期刊</a></li>
 									<li><a href="javascript:;" onclick="showAtRight('${base}/journal/queryJournalListByUid?mark=1&uId=${user.id}&currPage=1')" style="color: #FFF;margin:0 5px 0 5px;">未核期刊</a></li>
 									<li><a href="javascript:;" onclick="showAtRight('${base}/journal/queryJournalListByUid?mark=2&uId=${user.id}&currPage=1')" style="color: #FFF;margin:0 5px 0 5px;">已核期刊</a></li>
@@ -48,7 +48,6 @@
 											<li><a href="javascript:;" onclick="showAtRight('${base}/message/querySM?uId=${user.id}&currPage=1')">发件列表</a></li>
 										</ul>
 									</li>
-									<li><a href="javascript:;" onclick="showAtRight('${base}/user/queryAllUser?uId=${user.id}&currPage=1')" style="color: #FFF;margin:0 5px 0 5px;">沟通交流</a></li>
 								</ul>
 							</div>
 							<ul class="nav navbar-nav navbar-right"> 
