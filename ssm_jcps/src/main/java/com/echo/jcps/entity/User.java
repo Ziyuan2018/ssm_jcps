@@ -99,6 +99,14 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", type=" + type + ", username=" + username
+				+ ", password=" + password + ", realName=" + realName
+				+ ", sex=" + sex + ", email=" + email + ", phone=" + phone
+				+ ", bankCard=" + bankCard + "]";
+	}
 	
 	
 }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.echo.jcps.dao.JournalDao;
 import com.echo.jcps.entity.Journal;
 import com.echo.jcps.service.JournalService;
-import com.echo.jcps.web.JournalController;
 
 @Service
 public class JournalServiceImpl implements JournalService {
@@ -16,10 +15,6 @@ public class JournalServiceImpl implements JournalService {
 	// 注入DAO层数据
 	@Autowired
 	private JournalDao journalDao;
-	
-	// 注入Controller
-	@Autowired
-	private JournalController fileController;
 
 	// 上传期刊文件信息
 	@Override
