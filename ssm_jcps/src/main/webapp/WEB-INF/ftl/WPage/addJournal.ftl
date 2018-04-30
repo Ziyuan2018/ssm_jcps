@@ -165,7 +165,7 @@
 						</div>
 						<div id="no_rInfo" class="panel-collapse collapse in">
 							<div class="panel-body" style="text-align:center;padding-bottom:20px;padding-top:5px;">
-								<form action="${base}/journal/insertJournal?uId=${user.id}" method="POST" enctype="multipart/form-data">
+								<form onsubmit="return check()" action="${base}/journal/insertJournal?uId=${user.id}" method="POST" enctype="multipart/form-data">
 									<table class="table table-bordered" style="width:450px;margin:0 auto;">
 										<caption>填写期刊信息</caption><span style="color: red;">${state}</span>
 										<tr>
@@ -174,11 +174,11 @@
 										</tr>
 										<tr>
 											<td style="width: 25%;background-color: #F2F2F2">期刊名：</td>
-											<td><input type="text" class="form-control" value="" name="name"></td>
+											<td><input type="text" id="name" class="form-control" value="" name="name"></td>
 										</tr>
 										<tr>
 											<td style="width: 25%;background-color: #F2F2F2">关键词：</div></td>
-											<td><input type="text" class="form-control" value="" name="keyword"></td>
+											<td><input type="text" id="key" class="form-control" value="" name="keyword"></td>
 										</tr>
 										<tr>
 											<td style="width: 25%;background-color: #F2F2F2">期刊文件:</div></td>
@@ -279,6 +279,19 @@
             xmlHttp.open("GET", url, false);        //true表示异步处理
             xmlHttp.send();
         } 
+        // 判断输入的内容是否为空
+        function check() {
+			var name = document.getElementById("name").value;
+			var key = document.getElementById("key").value;
+			if(name ==  null || name == ''){
+				alert("期刊名不能为空");
+				return false;
+			}else if(key ==  null || key == ''){
+				alert("关键词不能为空");
+				return false;
+			}
+			return true;
+        }
 		</script>
 	</body>
 </html>
