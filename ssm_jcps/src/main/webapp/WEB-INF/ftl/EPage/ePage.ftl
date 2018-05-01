@@ -199,21 +199,21 @@
 									    <tbody>
 										    <tr>
 										      	<td style="width: 25%;background-color: #F2F2F2">姓名 :</td>
-										      	<td style="width: 25%">${user.realName}</td>
+										      	<td style="width: 25%">${user.realName?default('暂无')}</td>
 										      	<td style="width: 25%;background-color: #F2F2F2">邮箱 :</td>
-										      	<td>${user.email}</td>
+										      	<td>${user.email?default('暂无')}</td>
 										    </tr>
 										    <tr>
 										      	<td style="width: 25%;background-color: #F2F2F2">身份 :</td>
-										      	<td>${user.type}</td>
+										      	<td>${user.type?default('暂无')}</td>
 										      	<td style="width: 25%;background-color: #F2F2F2">手机号 :</td>
-										      	<td>${user.phone}</td>
+										      	<td>${user.phone?default('暂无')}</td>
 										    </tr>
 										    <tr>
 										      	<td style="width: 25%;background-color: #F2F2F2">银行卡号 :</td>
-										     	<td>${user.bankCard}</td>
+										     	<td>${user.bankCard?default('暂无')}</td>
 										     	<td style="width: 25%;background-color: #F2F2F2">性别 :</td>
-										      	<td>${user.sex}</td>
+										      	<td>${user.sex?default('暂无')}</td>
 										    </tr>
 										    <tr>
 										    	<td></td>
@@ -264,16 +264,16 @@
 															<div class="panel-body">
 														    	<form action="${base}/user/update?id=${user.id}" method="POST" enctype="multipart/form-data">
 														    		<div class="text-muted" style="color: #666;">姓名:</div>
-															    	<input type="text" class="form-control" placeholder="请输入真实姓名..." name="realName" value="${user.realName}">
+															    	<input type="text" class="form-control" placeholder="请输入真实姓名..." name="realName" value="${user.realName?default('暂无')}">
 															    	<p></p>   
 															    	<div class="text-muted" style="color: #666;">邮箱 :</div>
-															    	<input type="text" class="form-control" placeholder="请输入邮箱..." name="email" value="${user.email}">
+															    	<input type="text" class="form-control" placeholder="请输入邮箱..." name="email" value="${user.email?default('暂无')}">
 															    	<p></p>
 															    	<div class="text-muted" style="color: #666;">银行卡号 :</div>
-															    	<input type="text" class="form-control" placeholder="请输入银行卡号..." name="bankCard" value="${user.bankCard}">
+															    	<input type="text" class="form-control" placeholder="请输入银行卡号..." name="bankCard" value="${user.bankCard?default('暂无')}">
 															    	<p></p>
 															    	<div class="text-muted" style="color: #666;">手机号 :</div>
-															    	<input type="text" class="form-control" placeholder="请输入手机号..." name="phone" value="${user.phone}">
+															    	<input type="text" class="form-control" placeholder="请输入手机号..." name="phone" value="${user.phone?default('暂无')}">
 															    	<p></p>
 															    	<div class="text-muted" style="color: #666;">
 															    		性别：

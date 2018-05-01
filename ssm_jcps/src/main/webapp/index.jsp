@@ -110,19 +110,19 @@
 		          </div>
 		          <div class="modal-body" style="margin-left: 5%;margin-right: 5%;">
 			          <!--Form表单部分-->
-			          <form role="form" action="<%=basePath %>user/enroll" method="POST" enctype="multipart/form-data">
+			          <form onsubmit="return checkNullAndEqual()" role="form" action="<%=basePath %>user/enroll" method="POST" enctype="multipart/form-data">
 					  	<div class="form-group">
 					    	<div class="text-muted" style="color: #666;">账号</div>
-					    	<input type="text" class="form-control" placeholder="请输入账号..." name="username">
+					    	<input type="text" id="user" class="form-control" placeholder="请输入账号..." name="username">
 					    	<p></p>
 					    	<div class="text-muted" style="color: #666;">邮箱</div>
-					    	<input type="text" class="form-control" placeholder="请输入邮箱..." name="email">
+					    	<input type="text" id="email" class="form-control" placeholder="请输入邮箱..." name="email">
 					    	<p></p>
 					    	<div class="text-muted" style="color: #666;">密码</div>
-					    	<input type="password" class="form-control" placeholder="请输入密码..." name="password">
+					    	<input type="password" id="pwd1" class="form-control" placeholder="请输入密码..." name="password">
 					    	<p></p>
 					    	<div class="text-muted" style="color: #666;">确认密码</div>
-					    	<input type="password" class="form-control" placeholder="请确认密码...">
+					    	<input type="password" id="pwd2" class="form-control" placeholder="请确认密码...">
 					    	<p></p>
 					    	<br>
 					    	<div class="text-muted" style="color: #666;">
@@ -192,7 +192,31 @@
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
 		</div>
-
+		<script type="text/javascript">
+			function checkNullAndEqual(){
+				var email = document.getElementById("email").value;
+				var user = document.getElementById("user").value;
+				var pwd1 = document.getElementById("pwd1").value;
+				var pwd2 = document.getElementById("pwd2").value;
+				if(user ==  null || user == ''){
+					alert("账号不能为空");
+					return false;
+				}else if(email ==  null || email == ''){
+					alert("邮箱不能为空");
+					return false;
+				}else if(pwd1 ==  null || pwd1 == ''){
+					alert("密码不能为空");
+					return false;
+				}else if(pwd2 ==  null || pwd2 == ''){
+					alert("确认密码不能为空");
+					return false;
+				}else if(pwd1 != pwd2){
+					alert("两次密码不一致，请重新确认");
+					return false;
+				}
+				return true;
+			}
+		</script>
 	</body>
 </html>
 
